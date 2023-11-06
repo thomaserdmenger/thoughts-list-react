@@ -11,13 +11,17 @@ const initialThoughts = [
 export default function App() {
   const [thoughts, setThoughts] = React.useState(initialThoughts);
 
+  const addThought = (thought) => {
+    setThoughts((prevThoughts) => [thought, ...prevThoughts]);
+  };
+
   return (
     <React.Fragment>
       <header>
         <h1>💭 Passing Thoughts</h1>
       </header>
       <main>
-        <AddThoughtForm />
+        <AddThoughtForm addThought={addThought} />
         <ul>
           {thoughts.map((item) => (
             <li key={item.id}>{item.text}</li>

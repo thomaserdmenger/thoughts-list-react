@@ -1,6 +1,8 @@
 import * as React from "react";
 
-export default function AddThoughtForm() {
+import generateId from "../utilities/utilities";
+
+export default function AddThoughtForm({ addThought }) {
   const [text, setText] = React.useState("");
 
   const handleChange = ({ target }) => {
@@ -10,7 +12,14 @@ export default function AddThoughtForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(text);
+
+    const thought = {
+      id: generateId(),
+      text: text,
+    };
+
+    addThought(thought);
+
     setText("");
   };
 
