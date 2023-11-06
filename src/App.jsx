@@ -1,7 +1,5 @@
 import * as React from "react";
 
-import generateId from "./utilities/utilities";
-
 import AddThoughtForm from "./components/AddThoughtForm";
 import Thought from "./components/Thought";
 
