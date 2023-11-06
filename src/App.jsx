@@ -1,8 +1,11 @@
 import * as React from "react";
 
+import generateId from "./utilities/utilities";
+
 const initialThoughts = [
-  { id: 1, text: "This is a place for your passing thoughts." },
-  { id: 2, text: "They'll be removed after 15 seconds." },
+  { id: generateId(), text: "This is a place for your passing thoughts." },
+  { id: generateId(), text: "They'll be removed after 15 seconds." },
+  { id: generateId(), text: "They'll be removed after 15 seconds." },
 ];
 
 export default function App() {
@@ -18,6 +21,7 @@ export default function App() {
           {thoughts.map((item) => (
             <li key={item.id}>{item.text}</li>
           ))}
+          {thoughts.map((item) => console.log(item.id))}
         </ul>
       </main>
     </React.Fragment>
