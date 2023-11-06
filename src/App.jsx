@@ -1,7 +1,9 @@
 import * as React from "react";
 
 import generateId from "./utilities/utilities";
+
 import AddThoughtForm from "./components/AddThoughtForm";
+import Thought from "./components/Thought";
 
 const initialThoughts = [
   { id: generateId(), text: "This is a place for your passing thoughts." },
@@ -15,6 +17,10 @@ export default function App() {
     setThoughts((prevThoughts) => [thought, ...prevThoughts]);
   };
 
+  const removeThought = (id) => {
+    setThoughts((prevThought) => prevThought.filter((item) => item.id !== id));
+  };
+
   return (
     <React.Fragment>
       <header>
@@ -23,8 +29,12 @@ export default function App() {
       <main>
         <AddThoughtForm addThought={addThought} />
         <ul>
-          {thoughts.map((item) => (
-            <li key={item.id}>{item.text}</li>
+          {thoughts.map((thought) => (
+            <Thought
+              key={thought.id}
+              thought={thought}
+              removeThought={removeThought}
+            />
           ))}
         </ul>
       </main>
