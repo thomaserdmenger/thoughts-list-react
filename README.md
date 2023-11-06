@@ -1,4 +1,4 @@
-# Simple non-designed thoughts list to practice React's State Hook
+# Simple non-designed thoughts list to practice React's State and Effect Hook
 
 ## Links
 

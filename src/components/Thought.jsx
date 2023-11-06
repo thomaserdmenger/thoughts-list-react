@@ -1,6 +1,14 @@
 import * as React from "react";
 
 export default function Thought({ thought, removeThought }) {
+  React.useEffect(() => {
+    const timeout = setTimeout(() => {
+      removeThought(thought.id);
+    }, 15000);
+
+    return () => clearTimeout(timeout);
+  }, [thought]);
+
   const handleClick = () => {
     removeThought(thought.id);
   };
